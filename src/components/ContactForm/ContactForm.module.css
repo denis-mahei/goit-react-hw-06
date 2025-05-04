@@ -1,0 +1,32 @@
+.formContainer {
+    padding: 10px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin-bottom: 24px;
+}
+
+.formBtn {
+    padding: 8px;
+    max-width: 150px;
+    margin: auto;
+}
+
+.label {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.formField {
+    background: transparent;
+    margin-bottom: 5px;
+}
+
+
+.error {
+    color: #e50808;
+}
