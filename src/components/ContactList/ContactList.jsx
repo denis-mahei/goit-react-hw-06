@@ -1,17 +1,20 @@
+import { useSelector } from 'react-redux';
 import Contact from '../Contact/Contact.jsx';
 import css from './ContactList.module.css';
 
-const ContactList = ({ userCard, onDelete }) => {
+const ContactList = () => {
+  const contacts = useSelector((state) => state.contacts.items);
+
+  const filteredValue = useSelector((state) => state.filters.name);
+
+  const visibleContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filteredValue.toLowerCase())
+  );
+
   return (
     <ul className={css.cardContainer}>
-      {userCard.map((card) => (
-        <Contact
-          key={card.id}
-          name={card.name}
-          number={card.number}
-          id={card.id}
-          onDelete={onDelete}
-        />
+      {visibleContacts.map((card) => (
+        <Contact {...card} key={card.id} />
       ))}
     </ul>
   );

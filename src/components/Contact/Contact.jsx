@@ -1,18 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contactsSlice.js';
 import { FaPhoneAlt, FaUserTie } from 'react-icons/fa';
 import css from './Contact.module.css';
-import { useState } from 'react';
 
-const Contact = ({ name, number, id, onDelete }) => {
-  const [isFading, setIsFading] = useState(false);
+const Contact = ({ id, name, number }) => {
+  const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    setIsFading(true);
-    setTimeout(() => {
-      onDelete(id);
-    }, 250);
-  };
+  const handleDelete = () => dispatch(deleteContact(id));
   return (
-    <li className={`${css.userCard} ${isFading ? css.fadeOut : ''}`}>
+    <li key={id} className={css.userCard}>
       <div>
         <p className={css.cardItem}>
           <FaUserTie />

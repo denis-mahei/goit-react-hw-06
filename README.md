@@ -1,1 +1,1 @@
-GoIT. React homework 03. Form.
+# GoIT. React homework 06. Redux & Redux Toolkit.
